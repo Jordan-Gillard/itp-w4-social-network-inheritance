@@ -15,6 +15,7 @@ class User(object):
         for people_being_followed in self.following:
             for post in people_being_followed.posts:
                 timeline.append(post)
+                timeline.sort(key=lambda r: r.timestamp)
         return timeline
 
     def follow(self, other):
